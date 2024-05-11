@@ -1,0 +1,155 @@
+/* General body styles to center the game area vertically and horizontally */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Minimum height of 100% of the viewport height */
+  background-color: #f7f7f7; /* Light gray background color */
+  margin: 0; /* Remove default margin */
+  font-family: Arial, sans-serif; /* Set default font */
+}
+
+/* Logo container styling */
+#logoContainer {
+  text-align: center; /* Center the logo image horizontally */
+  margin-bottom: 0px; /* Space between the logo and the game box */
+  width: 100%; /* Ensures the container does not exceed the width of its content */
+  max-width: 600px; /* Matches the width of the game box */
+}
+
+#logoContainer img {
+  width: 50%; /* Adjusts the logo size to be half the width of the game box */
+  max-height: 100px; /* Maximum height of the logo */
+}
+
+/* General body styles to center the game area vertically and horizontally */
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Minimum height of 100% of the viewport height */
+  background-color: #f7f7f7; /* Light gray background color */
+  margin: 0; /* Remove default margin */
+  font-family: Arial, sans-serif; /* Set default font */
+}
+
+/* Logo container styling */
+#logoContainer {
+  text-align: center; /* Center the logo image horizontally */
+  margin-bottom: 0px; /* Space between the logo and the game box */
+  width: 100%; /* Ensures the container does not exceed the width of its content */
+  max-width: 600px; /* Matches the width of the game box */
+}
+
+#logoContainer img {
+  width: 80%; /* Adjusts the logo size to be half the width of the game box */
+  max-height: 180px; /* Maximum height of the logo */
+}
+
+.game {
+  position: relative; /* Needed for absolute positioning of children */
+  width: 600px; /* Fixed width */
+  height: 200px; /* Fixed height */
+  border: 1px solid black; /* Black border around the game area */
+  overflow: hidden; /* Hides any child elements that overflow the defined area */
+  background-color: #FFF; /* White background color */
+  background-image: url('background.png'); /* Background image for the game area */
+  background-size: cover; /* Ensure the background covers the entire container */
+  background-repeat: no-repeat; /* Do not repeat the background image */
+  background-position: center; /* Center the background image within the container */
+  margin: auto; /* Automatically adjust margins to center the game box */
+}
+
+/* Additional CSS remains the same */
+
+
+
+/* Styling for the player character, Damien */
+#Damien {
+  width: 30px; /* Width of the character */
+  height: 50px; /* Height of the character */
+  position: absolute; /* Position absolutely within the relative parent .game */
+  bottom: 0; /* Positioned at the bottom of the game container */
+  left: 50px; /* Offset from the left */
+  background-image: url('Damien.gif'); /* Character image */
+  background-size: cover; /* Ensure the background covers the entire element */
+  background-repeat: no-repeat; /* Do not repeat the background image */
+}
+
+/* Animation for Damien's jump action */
+.jump {
+  animation: jump 0.3s linear; /* Smooth linear animation over 0.3 seconds */
+}
+
+/* Keyframes for the jump animation */
+@keyframes jump {
+  0%, 100% {
+      bottom: 0; /* Start and end at the bottom */
+  }
+  50% {
+      bottom: 70px; /* Peak of the jump */
+  }
+}
+
+/* Common styles for all obstacles */
+.obstacle {
+  position: absolute; /* Absolute positioning within their parent */
+  bottom: 0; /* Align at the bottom of the parent */
+  right: 0; /* Start from the right edge */
+  background-size: cover; /* Cover the size of the obstacle */
+  background-repeat: no-repeat; /* No repeat of the background */
+  animation: block 1.15s infinite linear; /* Continuous movement animation */
+}
+
+/* Specific styles and animations for different obstacles */
+.UA, .UAKNOW, .ARROW {
+  width: 30px; /* General width, overridden by specific classes below */
+  height: 50px; /* General height, overridden by specific classes below */
+}
+
+.UA {
+  animation: block 1.29s infinite linear; /* Faster animation for the UA obstacle */
+}
+
+.UAKNOW {
+  width: 35px;  
+  height: 45px;
+  animation: block 1.25s infinite linear; /* Slightly faster than default */
+}
+
+.ARROW {
+  width: 25px; 
+  height: 50px;
+  animation: block 1.26s infinite linear; /* Specific speed for ARROW obstacle */
+}
+
+/* Define how obstacles enter and exit the game area */
+@keyframes block {
+  0% {
+      right: -20px; /* Slightly off-screen initially */
+  }
+  100% {
+      right: 100%; /* Exit completely to the right */
+  }
+}
+
+/* Timer display styling */
+#timer {
+  position: absolute; /* Absolute positioning */
+  top: 10px; /* Positioned near the top */
+  right: 10px; /* Positioned near the right edge */
+  color: #000; /* Black text color */
+  font-size: 20px; /* Text size */
+}
+
+/* Styling for the game title displayed before the game starts */
+.game:before {
+  content: 'DamienDash Game'; /* Text content */
+  position: absolute; /* Absolute positioning */
+  top: -30px; /* Above the top edge of the game container */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Ensure it's perfectly centered */
+  font-size: 20px; /* Font size */
+  color: #333; /* Dark gray text color */
+}
